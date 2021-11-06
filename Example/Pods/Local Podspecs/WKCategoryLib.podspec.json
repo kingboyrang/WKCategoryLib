@@ -1,0 +1,22 @@
+{
+  "name": "WKCategoryLib",
+  "version": "0.1.0",
+  "summary": "A short description of WKCategoryLib.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wuchaorang.2008@163.com/WKCategoryLib",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wuchaorang.2008@163.com": "wuchaorang.2008@163.com"
+  },
+  "source": {
+    "git": "https://github.com/wuchaorang.2008@163.com/WKCategoryLib.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "WKCategoryLib/Classes/**/*"
+}

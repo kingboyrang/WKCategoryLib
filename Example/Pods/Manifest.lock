@@ -1,0 +1,16 @@
+PODS:
+  - WKCategoryLib (0.1.0)
+
+DEPENDENCIES:
+  - WKCategoryLib (from `../`)
+
+EXTERNAL SOURCES:
+  WKCategoryLib:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WKCategoryLib: 172684f1f4f3dae8f50ab07b551dfd71459f091e
+
+PODFILE CHECKSUM: d4a3f7ba7e69dd3d5b6750a77332c0f02ec5af28
+
+COCOAPODS: 1.10.0.beta.2
