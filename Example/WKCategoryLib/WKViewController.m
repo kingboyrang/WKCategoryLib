@@ -21,6 +21,12 @@
 {
     [super viewDidLoad];
     
+    //pod 制作教程
+    //https://www.jianshu.com/p/db158239f3a4
+    
+    //常用分类
+    //https://gitee.com/git_China_/ProductCategory/tree/master/%E5%BF%85%E7%94%A8%E5%88%86%E7%B1%BB
+    
     NSString *str=@"123456";
     
     NSLog(@"uuid=%@",[NSString createGUID]);

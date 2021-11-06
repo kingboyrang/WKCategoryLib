@@ -98,6 +98,19 @@ typedef struct TKDateInformation TKDateInformation;
 - (NSDate *)endOfWeek;
 
 /**
+ *  是否为今天
+ */
+- (BOOL)isToday;
+/**
+ *  是否为昨天
+ */
+- (BOOL)isYesterday;
+/**
+ *  是否为今年
+ */
+- (BOOL)isThisYear;
+
+/**
  *  日期添加几月
  *  @param month 添加几个月
  *  @return      日期添加几月的时间
