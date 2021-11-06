@@ -8,6 +8,7 @@
 
 #import "WKViewController.h"
 #import <WKCategoryLib/NSString+WKString.h>
+#import <WKCategoryLib/NSDate+WKDate.h>
 
 @interface WKViewController ()
 
@@ -23,6 +24,14 @@
     
     NSLog(@"uuid=%@",[NSString createGUID]);
     NSLog(@"md5=%@",[str stringFromMD5]);
+    
+    
+    NSDate *nowDate = [NSDate date];
+    NSLog(@"取得今天是星期几=%ld",(long)[nowDate dayOfWeek]);
+    NSLog(@"取得每月有多少天=%ld",(long)[nowDate monthOfDay]);
+    NSLog(@"日期格式化成字符串=%@",[nowDate stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]);
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

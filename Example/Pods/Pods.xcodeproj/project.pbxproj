@@ -13,6 +13,10 @@
 		0701A05F273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */; };
 		0701A060273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */; };
 		0701A061273649A6009F9CFE /* NSString+WKString.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A05827362A89009F9CFE /* NSString+WKString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0701A06427365764009F9CFE /* NSDate+WKDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A06227365764009F9CFE /* NSDate+WKDate.h */; };
+		0701A06527365764009F9CFE /* NSDate+WKDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A06227365764009F9CFE /* NSDate+WKDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0701A06627365764009F9CFE /* NSDate+WKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701A06327365764009F9CFE /* NSDate+WKDate.m */; };
+		0701A06727365764009F9CFE /* NSDate+WKDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701A06327365764009F9CFE /* NSDate+WKDate.m */; };
 		0A8D85D864290011733818FD19A108D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		1ABBCDD6C196E92D11326ECA051D6269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		2C39A60F3662673E939C1C20ED2A2899 /* Pods-WKCategoryLib_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A64D35C16B500393181FBEB593574B /* Pods-WKCategoryLib_Tests-dummy.m */; };
@@ -48,6 +52,8 @@
 		0701A05827362A89009F9CFE /* NSString+WKString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WKString.h"; sourceTree = "<group>"; };
 		0701A05927362A89009F9CFE /* NSString+WKString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WKString.m"; sourceTree = "<group>"; };
 		0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WKCategoryLib.xcassets; sourceTree = "<group>"; };
+		0701A06227365764009F9CFE /* NSDate+WKDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+WKDate.h"; sourceTree = "<group>"; };
+		0701A06327365764009F9CFE /* NSDate+WKDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WKDate.m"; sourceTree = "<group>"; };
 		07B44621A387460DCCEEFF60A7D9E316 /* Pods-WKCategoryLib_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WKCategoryLib_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1014EF472CA72D1222430628C683A714 /* WKCategoryLib-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WKCategoryLib-Info.plist"; sourceTree = "<group>"; };
 		11150C501822897408D4E504FB26D4D0 /* Pods-WKCategoryLib_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WKCategoryLib_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 			children = (
 				0701A05827362A89009F9CFE /* NSString+WKString.h */,
 				0701A05927362A89009F9CFE /* NSString+WKString.m */,
+				0701A06227365764009F9CFE /* NSDate+WKDate.h */,
+				0701A06327365764009F9CFE /* NSDate+WKDate.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F01787DC94BC67C26B70DCE5406842E0 /* Pods-WKCategoryLib_Example-umbrella.h in Headers */,
+				0701A06427365764009F9CFE /* NSDate+WKDate.h in Headers */,
 				0701A05A27362A89009F9CFE /* NSString+WKString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0701A061273649A6009F9CFE /* NSString+WKString.h in Headers */,
+				0701A06527365764009F9CFE /* NSDate+WKDate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0701A05C27362A89009F9CFE /* NSString+WKString.m in Sources */,
+				0701A06627365764009F9CFE /* NSDate+WKDate.m in Sources */,
 				D8062448E4F800653AF588FB93319413 /* Pods-WKCategoryLib_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0701A05D27362A89009F9CFE /* NSString+WKString.m in Sources */,
+				0701A06727365764009F9CFE /* NSDate+WKDate.m in Sources */,
 				499031B2DB61E21079093871ACB1A0E4 /* WKCategoryLib-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
