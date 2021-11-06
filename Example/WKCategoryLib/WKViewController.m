@@ -7,6 +7,7 @@
 //
 
 #import "WKViewController.h"
+#import <WKCategoryLib/NSString+WKString.h>
 
 @interface WKViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *str=@"123456";
+    
+    NSLog(@"uuid=%@",[NSString createGUID]);
+    NSLog(@"md5=%@",[str stringFromMD5]);
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

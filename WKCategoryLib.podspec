@@ -40,9 +40,9 @@ Pod::Spec.new do |s|
   #这个很重要，指定资源文件，前缀就是 .podspec 文件当前路径，只用写之后的路径，如 Classes/* 是指 Classes 文件夹下的所有文件，但不包括子文件夹里面的文件、Classes/**/* 是指包含所有 Classes 文件夹下的文件，包括子文件、Classes/**/*.{h,m} 是指包含所有 Classes 文件夹下的后缀为 .h 和 .m 的文件，也可以指定文件。
   s.source_files = 'WKCategoryLib/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'WKCategoryLib' => ['WKCategoryLib/Assets/*.xcassets']
-  # }
+  s.resource_bundles = {
+    'WKCategoryLib' => ['WKCategoryLib/Assets/*.xcassets']
+  }
 
   #公开的头文件，如果没有公开，用户在用的时候可能引不到响应的头文件
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -54,12 +54,12 @@ Pod::Spec.new do |s|
   
   #这个是子依赖库，如果我们只是用 s.source_files 来指定文件，那么用户在 pod 下来之后所有的文件都在同一个目录下，没有子文件夹，如果想要分类，用 s.subspec，每一个 subspec 可以分一个子文件夹，但是记得一定要将 .h 文件通过 ss.public_header_files 公开，不然有可能会找不到头文件。
   #s.subspec 'UIKit' do |ss|
-  #    ss.source_files = 'KKPodTest/Classes/UIKit/*.{h,m}'
+  #    ss.source_files = 'WKCategoryLib/Classes/UIKit/*.{h,m}'
   #end
   
   #s.subspec 'Category' do |ss|
-  #    ss.source_files = 'KKPodTest/Classes/Category/*.{h,m}'
-  #end
+  #    ss.source_files = 'WKCategoryLib/Classes/Category/*.{h,m}'
+  end
 
   
 end
