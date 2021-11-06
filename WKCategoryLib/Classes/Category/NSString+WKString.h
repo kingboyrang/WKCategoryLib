@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回guid值
  */
-+ (NSString*)createGUID;
++ (instancetype)createGUID;
 
 /**
  *  字符串md5加密

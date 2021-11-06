@@ -16,7 +16,7 @@
  *
  *  @return 返回guid值
  */
-+ (NSString*)createGUID{
++ (instancetype)createGUID{
     CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
     CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
     CFRelease(uuid_ref);

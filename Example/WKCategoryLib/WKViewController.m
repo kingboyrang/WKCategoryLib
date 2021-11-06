@@ -9,6 +9,7 @@
 #import "WKViewController.h"
 #import <WKCategoryLib/NSString+WKString.h>
 #import <WKCategoryLib/NSDate+WKDate.h>
+#import <WKCategoryLib/UIColor+WKColor.h>
 
 @interface WKViewController ()
 
@@ -31,6 +32,10 @@
     NSLog(@"取得每月有多少天=%ld",(long)[nowDate monthOfDay]);
     NSLog(@"日期格式化成字符串=%@",[nowDate stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]);
     
+    UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, self.view.frame.size.width - 200, 100)];
+    //colorView.backgroundColor = [UIColor colorWithHexStr:@"ff9ab00"];
+    colorView.backgroundColor = UIColorMakeRGB(235, 40, 160);
+    [self.view addSubview:colorView];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
