@@ -26,6 +26,37 @@
 }
 
 /**
+ * 生成随机字母
+ * @param number  需要的个数
+ * @return 生成的字符串
+ */
++ (instancetype)randomString:(NSInteger)number{
+
+    //声明并赋值字符串长度变量
+    //static NSInteger kNumber = 32;
+    //随机字符串产生的范围（可自定义)
+    NSString *sourceString = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    //可变字符串
+    NSMutableString *resultString = [NSMutableString string];
+    //使用for循环拼接字符串
+    for (NSInteger i = 0; i < number; i++) {
+        //36是sourceString的长度，也可以写成sourceString.length
+        [resultString appendString:[sourceString substringWithRange:NSMakeRange(arc4random() % [sourceString length], 1)]];
+    }
+    return resultString;
+    /**
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: number];
+    
+    for (NSInteger i = 0; i < number; i++) {
+        NSUInteger index = arc4random_uniform([letters length]);
+        [randomString appendFormat: @"%C", [letters characterAtIndex: index]];
+    }
+    return randomString;
+     **/
+}
+
+/**
  *  字符串md5加密
  *
  *  @return md5字符串
@@ -125,6 +156,16 @@
 }
 
 /**
+*  @brief  计算文本高度
+*  @param  font      文本字体
+*  @param  maxSize   文本显示的大小
+*/
+- (CGSize)sizeOfTextFont:(UIFont *)font maxSize:(CGSize)maxSize{
+    NSDictionary *attrs = @{NSFontAttributeName : font};
+    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+}
+
+/**
 *  @brief  判断是否为整形
 *
 *  @return YES表示整型，NO不是整型
@@ -132,7 +173,7 @@
 - (BOOL)isInterger {
     NSScanner* scan = [NSScanner scannerWithString:self];
     int val;
-    return[scan scanInt:&val] && [scan isAtEnd];
+    return [scan scanInt:&val] && [scan isAtEnd];
 }
 
 /**
@@ -143,7 +184,7 @@
 - (BOOL)isFloat {
     NSScanner* scan = [NSScanner scannerWithString:self];
     float val;
-    return[scan scanFloat:&val] && [scan isAtEnd];
+    return [scan scanFloat:&val] && [scan isAtEnd];
 }
 
 /**
@@ -173,6 +214,25 @@
         return [pred evaluateWithObject:[self Trim]];
     }
     return NO;
+}
+
+/**
+ *  @brief  正则验证
+ *  @param  express 正则表达式
+ *  @return 成功为YES,否则为NO
+ */
+- (BOOL)regularValidateWithExpress:(NSString *)express{
+    
+    //email
+    //NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    //手机号码
+    //NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    
+    //车牌号验证
+    //NSString *carRegex = @"^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$";
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",express];
+    return [passWordPredicate evaluateWithObject:self];
 }
 
 @end

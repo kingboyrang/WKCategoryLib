@@ -20,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createGUID;
 
 /**
+ * 生成随机字母
+ * @param number  需要的个数
+ * @return 生成的字符串
+ */
++ (instancetype)randomString:(NSInteger)number;
+
+/**
  *  字符串md5加密
  *
  *  @return md5字符串
@@ -68,6 +75,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w;
 
 /**
+ *  @brief  计算文本高度
+ *  @param  font      文本字体
+ *  @param  maxSize   文本显示的大小
+ */
+- (CGSize)sizeOfTextFont:(UIFont *)font maxSize:(CGSize)maxSize;
+
+/**
 *  @brief  判断是否为整形
 *
 *  @return YES表示整型，NO不是整型
@@ -94,6 +108,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 是为YES,否则为NO
  */
 - (BOOL)isLetterAndNumber;
+
+/**
+ *  @brief  正则验证
+ *  @param  express 正则表达式(如email验证：@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
+ *  @return 成功为YES,否则为NO
+ */
+- (BOOL)regularValidateWithExpress:(NSString *)express;
 
 @end
 

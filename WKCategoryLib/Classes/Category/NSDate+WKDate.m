@@ -9,6 +9,24 @@
 
 @implementation NSDate (WKDate)
 
+/**
+  获取当前时间戳(毫秒)
+ */
++ (NSString *)getNowTimestampMilliSecondStr{
+    double currentTime =  [[NSDate date] timeIntervalSince1970]*1000;
+    NSString *strTime = [NSString stringWithFormat:@"%.0f",currentTime];
+    return strTime;
+}
+
+/**
+  获取当前时间戳(秒)
+ */
++ (NSString *)getNowTimestampSecondStr{
+    double currentTime =  [[NSDate date] timeIntervalSince1970];
+    NSString *strTime = [NSString stringWithFormat:@"%.0f",currentTime];
+    return strTime;
+}
+
 //取得今天是星期幾
 -(NSInteger)dayOfWeek{
     NSCalendar *calendar = [NSCalendar currentCalendar];

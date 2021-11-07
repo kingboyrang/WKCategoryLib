@@ -56,6 +56,16 @@ typedef struct TKDateInformation TKDateInformation;
 @interface NSDate (WKDate)
 
 /**
+  获取当前时间戳(毫秒)
+ */
++ (NSString *)getNowTimestampMilliSecondStr;
+
+/**
+  获取当前时间戳(秒)
+ */
++ (NSString *)getNowTimestampSecondStr;
+
+/**
  *  取得今天是星期几
  *
  *  @return 取得今天是星期几(由1-7)
