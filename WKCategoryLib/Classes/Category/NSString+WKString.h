@@ -74,36 +74,41 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)URLDecoded;
 
 /**
- *  @brief  取得text大小
+ *  @brief  url query转成NSDictionary
  *
- *  @param  f   文本字体
- *  @param  w   文本显示的最大宽度
- *  @return 返回文本大小
+ *  @return NSDictionary
  */
-- (CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w;
+- (NSDictionary *)dictionaryFromURLParameters;
 
 /**
- *  @brief  计算文本高度
- *  @param  font      文本字体
- *  @param  maxSize   文本显示的大小
+ *  @brief 计算文字的高度
+ *
+ *  @param font  字体(默认为系统字体)
+ *  @param width 约束宽度
  */
-- (CGSize)sizeOfTextFont:(UIFont *)font maxSize:(CGSize)maxSize;
+- (CGFloat)heightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
+/**
+ *  @brief 计算文字的宽度
+ *
+ *  @param font   字体(默认为系统字体)
+ *  @param height 约束高度
+ */
+- (CGFloat)widthWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height;
 
 /**
- * 计算文字高度
- * @param fontSize 字体
- * @param width 最大宽度
- * @return 文字高度
+ *  @brief 计算文字的大小
+ *
+ *  @param font  字体(默认为系统字体)
+ *  @param width 约束宽度
  */
-- (CGFloat)heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width;
-
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
 /**
- * 计算文字宽度
- * @param fontSize  字体
- * @param maxHeight 最大高度
- * @return  文字宽度
+ *  @brief 计算文字的大小
+ *
+ *  @param font   字体(默认为系统字体)
+ *  @param height 约束高度
  */
-- (CGFloat)widthWithFontSize:(CGFloat)fontSize height:(CGFloat)maxHeight;
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height;
 
 /**
 *  @brief  判断是否为整形

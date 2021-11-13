@@ -27,6 +27,9 @@
                          
                                                           error:&err];
     if(err) {
+        #ifdef DEBUG
+                NSLog(@"fail to get dictioanry from JSON: %@, error: %@", jsonString, err);
+        #endif
         return nil;
     }
     return dic;
@@ -37,12 +40,15 @@
 *  @return 返回json字符串
 */
 - (NSString *)toJSONString{
-    NSError *error;
+    NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
     NSString *jsonString;
     if (!jsonData) {
         //NSLog(@"%@",error);
-        return @"";
+        #ifdef DEBUG
+                NSLog(@"fail to get JSON from dictionary: %@, error: %@", self, error);
+        #endif
+        return nil;
     }else{
         jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
     }

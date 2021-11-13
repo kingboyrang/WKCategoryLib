@@ -137,58 +137,195 @@
 }
 
 /**
- *  @brief  取得text大小
+ *  @brief  url query转成NSDictionary
  *
- *  @param  f   文本字体
- *  @param  w   文本显示的最大宽度
- *  @return 返回文本大小
+ *  @return NSDictionary
  */
-- (CGSize)textSize:(UIFont*)f withWidth:(CGFloat)w{
-    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-        NSDictionary *attr = @{NSFontAttributeName:f};
-        CGRect rect = [self boundingRectWithSize:CGSizeMake(w, CGFLOAT_MAX)
-                                        options:NSStringDrawingUsesLineFragmentOrigin
-                                     attributes:attr
-                                        context:nil];
-        return  rect.size;
-    #else
-        return  [self sizeWithFont:f constrainedToSize:CGSizeMake(w, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    #endif
+- (NSDictionary *)dictionaryFromURLParameters{
+    NSArray *pairs = [self componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val = [[kv objectAtIndex:1] stringByRemovingPercentEncoding];
+        [params setObject:val forKey:[kv objectAtIndex:0]];
+    }
+    return params;
 }
 
-/**
-*  @brief  计算文本高度
-*  @param  font      文本字体
-*  @param  maxSize   文本显示的大小
-*/
-- (CGSize)sizeOfTextFont:(UIFont *)font maxSize:(CGSize)maxSize{
-    NSDictionary *attrs = @{NSFontAttributeName : font};
-    return [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-}
 
 /**
-* 计算文字高度
-* @param fontSize 字体
-* @param width 最大宽度
-* @return 文字高度
-*/
--(CGFloat)heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width
+ *  @brief 计算文字的高度
+ *
+ *  @param font  字体(默认为系统字体)
+ *  @param width 约束宽度
+ */
+- (CGFloat)heightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width
 {
-    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
-    return  [self boundingRectWithSize:CGSizeMake(width, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size.height;
+    UIFont *textFont = font ? font : [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    
+    CGSize textSize;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                     NSParagraphStyleAttributeName: paragraph};
+        textSize = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                      options:(NSStringDrawingUsesLineFragmentOrigin |
+                                               NSStringDrawingTruncatesLastVisibleLine)
+                                   attributes:attributes
+                                      context:nil].size;
+    } else {
+        textSize = [self sizeWithFont:textFont
+                    constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)
+                        lineBreakMode:NSLineBreakByWordWrapping];
+    }
+#else
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                 NSParagraphStyleAttributeName: paragraph};
+    textSize = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                  options:(NSStringDrawingUsesLineFragmentOrigin |
+                                           NSStringDrawingTruncatesLastVisibleLine)
+                               attributes:attributes
+                                  context:nil].size;
+#endif
+    
+    return ceil(textSize.height);
 }
 
 /**
-* 计算文字宽度
-* @param fontSize  字体
-* @param maxHeight 最大高度
-* @return  文字宽度
-*/
-- (CGFloat) widthWithFontSize:(CGFloat)fontSize height:(CGFloat)maxHeight
+ *  @brief 计算文字的宽度
+ *
+ *  @param font   字体(默认为系统字体)
+ *  @param height 约束高度
+ */
+- (CGFloat)widthWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height
 {
-    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
-    return  [self boundingRectWithSize:CGSizeMake(0, maxHeight) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size.width;
+    UIFont *textFont = font ? font : [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    
+    CGSize textSize;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                     NSParagraphStyleAttributeName: paragraph};
+        textSize = [self boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height)
+                                      options:(NSStringDrawingUsesLineFragmentOrigin |
+                                               NSStringDrawingTruncatesLastVisibleLine)
+                                   attributes:attributes
+                                      context:nil].size;
+    } else {
+        textSize = [self sizeWithFont:textFont
+                    constrainedToSize:CGSizeMake(CGFLOAT_MAX, height)
+                        lineBreakMode:NSLineBreakByWordWrapping];
+    }
+#else
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                 NSParagraphStyleAttributeName: paragraph};
+    textSize = [self boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height)
+                                  options:(NSStringDrawingUsesLineFragmentOrigin |
+                                           NSStringDrawingTruncatesLastVisibleLine)
+                               attributes:attributes
+                                  context:nil].size;
+#endif
+    
+    return ceil(textSize.width);
 }
+
+/**
+ *  @brief 计算文字的大小
+ *
+ *  @param font  字体(默认为系统字体)
+ *  @param width 约束宽度
+ */
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width
+{
+    UIFont *textFont = font ? font : [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    
+    CGSize textSize;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                     NSParagraphStyleAttributeName: paragraph};
+        textSize = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                      options:(NSStringDrawingUsesLineFragmentOrigin |
+                                               NSStringDrawingTruncatesLastVisibleLine)
+                                   attributes:attributes
+                                      context:nil].size;
+    } else {
+        textSize = [self sizeWithFont:textFont
+                    constrainedToSize:CGSizeMake(width, CGFLOAT_MAX)
+                        lineBreakMode:NSLineBreakByWordWrapping];
+    }
+#else
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                 NSParagraphStyleAttributeName: paragraph};
+    textSize = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
+                                  options:(NSStringDrawingUsesLineFragmentOrigin |
+                                           NSStringDrawingTruncatesLastVisibleLine)
+                               attributes:attributes
+                                  context:nil].size;
+#endif
+    
+    return CGSizeMake(ceil(textSize.width), ceil(textSize.height));
+}
+
+/**
+ *  @brief 计算文字的大小
+ *
+ *  @param font   字体(默认为系统字体)
+ *  @param height 约束高度
+ */
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height
+{
+    UIFont *textFont = font ? font : [UIFont systemFontOfSize:[UIFont systemFontSize]];
+    
+    CGSize textSize;
+    
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 70000
+    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+        NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+        paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+        NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                     NSParagraphStyleAttributeName: paragraph};
+        textSize = [self boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height)
+                                      options:(NSStringDrawingUsesLineFragmentOrigin |
+                                               NSStringDrawingTruncatesLastVisibleLine)
+                                   attributes:attributes
+                                      context:nil].size;
+    } else {
+        textSize = [self sizeWithFont:textFont
+                    constrainedToSize:CGSizeMake(CGFLOAT_MAX, height)
+                        lineBreakMode:NSLineBreakByWordWrapping];
+    }
+#else
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName: textFont,
+                                 NSParagraphStyleAttributeName: paragraph};
+    textSize = [self boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height)
+                                  options:(NSStringDrawingUsesLineFragmentOrigin |
+                                           NSStringDrawingTruncatesLastVisibleLine)
+                               attributes:attributes
+                                  context:nil].size;
+#endif
+    
+    return CGSizeMake(ceil(textSize.width), ceil(textSize.height));
+}
+
+
 
 /**
 *  @brief  判断是否为整形

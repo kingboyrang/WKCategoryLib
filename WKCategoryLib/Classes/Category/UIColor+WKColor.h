@@ -39,6 +39,18 @@ UIColor* UIColorMakeRGBWithAlpha(CGFloat red, CGFloat green, CGFloat blue,CGFloa
  */
 + (instancetype)colorWithHexStr:(NSString *)hexStr alpha:(CGFloat)alpha;
 
+
+/**
+ *  @brief  渐变颜色
+ *
+ *  @param c1     开始颜色
+ *  @param c2     结束颜色
+ *  @param height 渐变高度
+ *
+ *  @return 渐变颜色
+ */
++ (UIColor*)gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(int)height;
+
 @property (nonatomic, assign, readonly) CGFloat red;
 @property (nonatomic, assign, readonly) CGFloat green;
 @property (nonatomic, assign, readonly) CGFloat blue;
