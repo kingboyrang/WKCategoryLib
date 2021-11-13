@@ -33,6 +33,10 @@
 		071B856027376794006130D2 /* UserDefaultsCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 071B855D27376794006130D2 /* UserDefaultsCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071B856127376794006130D2 /* UserDefaultsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B855E27376794006130D2 /* UserDefaultsCache.m */; };
 		071B856227376794006130D2 /* UserDefaultsCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B855E27376794006130D2 /* UserDefaultsCache.m */; };
+		0781E02D273A0272004B7B72 /* UIScreen+WKScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 0781E02B273A0272004B7B72 /* UIScreen+WKScreen.h */; };
+		0781E02E273A0272004B7B72 /* UIScreen+WKScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 0781E02B273A0272004B7B72 /* UIScreen+WKScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0781E02F273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0781E02C273A0272004B7B72 /* UIScreen+WKScreen.m */; };
+		0781E030273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0781E02C273A0272004B7B72 /* UIScreen+WKScreen.m */; };
 		0A8D85D864290011733818FD19A108D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		1ABBCDD6C196E92D11326ECA051D6269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		2C39A60F3662673E939C1C20ED2A2899 /* Pods-WKCategoryLib_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A64D35C16B500393181FBEB593574B /* Pods-WKCategoryLib_Tests-dummy.m */; };
@@ -78,6 +82,8 @@
 		071B85582737602A006130D2 /* FileCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		071B855D27376794006130D2 /* UserDefaultsCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultsCache.h; sourceTree = "<group>"; };
 		071B855E27376794006130D2 /* UserDefaultsCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsCache.m; sourceTree = "<group>"; };
+		0781E02B273A0272004B7B72 /* UIScreen+WKScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+WKScreen.h"; sourceTree = "<group>"; };
+		0781E02C273A0272004B7B72 /* UIScreen+WKScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+WKScreen.m"; sourceTree = "<group>"; };
 		07B44621A387460DCCEEFF60A7D9E316 /* Pods-WKCategoryLib_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WKCategoryLib_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1014EF472CA72D1222430628C683A714 /* WKCategoryLib-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WKCategoryLib-Info.plist"; sourceTree = "<group>"; };
 		11150C501822897408D4E504FB26D4D0 /* Pods-WKCategoryLib_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WKCategoryLib_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 				0701A06927365DAB009F9CFE /* UIImage+WKImage.m */,
 				0701A06E273666FA009F9CFE /* UIColor+WKColor.h */,
 				0701A06F273666FA009F9CFE /* UIColor+WKColor.m */,
+				0781E02B273A0272004B7B72 /* UIScreen+WKScreen.h */,
+				0781E02C273A0272004B7B72 /* UIScreen+WKScreen.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 				0701A06A27365DAB009F9CFE /* UIImage+WKImage.h in Headers */,
 				F01787DC94BC67C26B70DCE5406842E0 /* Pods-WKCategoryLib_Example-umbrella.h in Headers */,
 				0701A06427365764009F9CFE /* NSDate+WKDate.h in Headers */,
+				0781E02D273A0272004B7B72 /* UIScreen+WKScreen.h in Headers */,
 				071B85592737602A006130D2 /* FileCache.h in Headers */,
 				0701A05A27362A89009F9CFE /* NSString+WKString.h in Headers */,
 				0701A070273666FA009F9CFE /* UIColor+WKColor.h in Headers */,
@@ -339,6 +348,7 @@
 				0701A071273666FA009F9CFE /* UIColor+WKColor.h in Headers */,
 				0701A06527365764009F9CFE /* NSDate+WKDate.h in Headers */,
 				071B856027376794006130D2 /* UserDefaultsCache.h in Headers */,
+				0781E02E273A0272004B7B72 /* UIScreen+WKScreen.h in Headers */,
 				071B855A2737602A006130D2 /* FileCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071B855B2737602A006130D2 /* FileCache.m in Sources */,
+				0781E02F273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */,
 				071B856127376794006130D2 /* UserDefaultsCache.m in Sources */,
 				0701A05C27362A89009F9CFE /* NSString+WKString.m in Sources */,
 				0701A06C27365DAB009F9CFE /* UIImage+WKImage.m in Sources */,
@@ -485,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071B855C2737602A006130D2 /* FileCache.m in Sources */,
+				0781E030273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */,
 				071B856227376794006130D2 /* UserDefaultsCache.m in Sources */,
 				0701A05D27362A89009F9CFE /* NSString+WKString.m in Sources */,
 				0701A06D27365DAB009F9CFE /* UIImage+WKImage.m in Sources */,

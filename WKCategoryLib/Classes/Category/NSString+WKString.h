@@ -20,11 +20,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createGUID;
 
 /**
- * 生成随机字母
+ * 随机字符串
  * @param number  需要的个数
  * @return 生成的字符串
  */
 + (instancetype)randomString:(NSInteger)number;
+
+/**
+ * 随机字符串
+ * @param letters  指定随机字符串
+ * @param number   需要的个数
+ * @return 生成的字符串
+ */
++ (instancetype)randomString:(NSString*)letters length:(NSInteger)number;
 
 /**
  *  字符串md5加密

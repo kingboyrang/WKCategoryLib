@@ -31,30 +31,31 @@
  * @return 生成的字符串
  */
 + (instancetype)randomString:(NSInteger)number{
-
-    //声明并赋值字符串长度变量
-    //static NSInteger kNumber = 32;
+    
     //随机字符串产生的范围（可自定义)
     NSString *sourceString = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return [self randomString:sourceString length:number];
+}
+
+/**
+ * 随机字符串
+ * @param letters  指定随机字符串
+ * @param number   需要的个数
+ * @return 生成的字符串
+ */
++ (instancetype)randomString:(NSString*)letters length:(NSInteger)number{
+    
     //可变字符串
     NSMutableString *resultString = [NSMutableString string];
     //使用for循环拼接字符串
     for (NSInteger i = 0; i < number; i++) {
         //36是sourceString的长度，也可以写成sourceString.length
-        [resultString appendString:[sourceString substringWithRange:NSMakeRange(arc4random() % [sourceString length], 1)]];
+        [resultString appendString:[letters substringWithRange:NSMakeRange(arc4random() % [letters length], 1)]];
     }
     return resultString;
-    /**
-    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: number];
-    
-    for (NSInteger i = 0; i < number; i++) {
-        NSUInteger index = arc4random_uniform([letters length]);
-        [randomString appendFormat: @"%C", [letters characterAtIndex: index]];
-    }
-    return randomString;
-     **/
 }
+
+
 
 /**
  *  字符串md5加密
