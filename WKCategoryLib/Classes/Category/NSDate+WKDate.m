@@ -96,7 +96,7 @@
 - (BOOL)isToday
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    int unit = NSCalendarUnitDay | NSCalendarUnitMonth |  NSCalendarUnitYear;
+    NSCalendarUnit unit = NSCalendarUnitEra| NSCalendarUnitDay | NSCalendarUnitMonth |  NSCalendarUnitYear;
     
     // 1.获得当前时间的年月日
     NSDateComponents *nowCmps = [calendar components:unit fromDate:[NSDate date]];
@@ -285,6 +285,22 @@
         return YES;
     }
     return NO;
+}
+
+/**
+ * 根据前后NSDate，获取中间差了多少天
+ * @param fromDate 开始时间
+ * @param toDate   结束时间
+ */
++ (NSInteger)numberOfDaysWithFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate{
+   NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
+   NSDateComponents    * comp = [calendar components:NSCalendarUnitDay
+                                            fromDate:fromDate
+                                              toDate:toDate
+                                             options:NSCalendarWrapComponents];
+   //NSLog(@" -- >>  comp : %@  << --",comp);
+   return comp.day;
 }
 
 @end

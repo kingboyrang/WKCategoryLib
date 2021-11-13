@@ -90,6 +90,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)sizeOfTextFont:(UIFont *)font maxSize:(CGSize)maxSize;
 
 /**
+ * 计算文字高度
+ * @param fontSize 字体
+ * @param width 最大宽度
+ * @return 文字高度
+ */
+- (CGFloat)heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width;
+
+/**
+ * 计算文字宽度
+ * @param fontSize  字体
+ * @param maxHeight 最大高度
+ * @return  文字宽度
+ */
+- (CGFloat)widthWithFontSize:(CGFloat)fontSize height:(CGFloat)maxHeight;
+
+/**
 *  @brief  判断是否为整形
 *
 *  @return YES表示整型，NO不是整型
@@ -123,6 +139,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 成功为YES,否则为NO
  */
 - (BOOL)regularValidateWithExpress:(NSString *)express;
+
+/**
+ 通过时间戳计算时间差（几小时前、几天前
+ @param compareDate 时间戳
+ @return 时间显示
+ */
++ (NSString *) compareCurrentTime:(NSTimeInterval) compareDate;
+
+/**
+ 通过时间戳得出对应的时间
+ @param timestamp 时间戳
+ @return 时间显示
+ */
++ (NSString *) getDateStringWithTimestamp:(NSTimeInterval)timestamp;
+
+/**
+ //通过时间戳和显示时间
+ @param timestamp 时间戳
+ @param formatter 格式
+ @return 时间显示
+ */
++ (NSString *) getStringWithTimestamp:(NSTimeInterval)timestamp formatter:(NSString*)formatter;
 
 @end
 

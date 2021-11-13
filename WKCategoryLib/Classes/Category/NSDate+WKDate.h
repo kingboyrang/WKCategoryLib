@@ -184,6 +184,13 @@ typedef struct TKDateInformation TKDateInformation;
  */
 -(BOOL)compareToDate:(NSDate*)date;
 
+/**
+ * 根据前后NSDate，获取中间差了多少天
+ * @param fromDate 开始时间
+ * @param toDate   结束时间
+ */
++ (NSInteger)numberOfDaysWithFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+
 @end
 
 NS_ASSUME_NONNULL_END

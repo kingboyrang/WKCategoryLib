@@ -10,6 +10,7 @@
 #import <WKCategoryLib/NSString+WKString.h>
 #import <WKCategoryLib/NSDate+WKDate.h>
 #import <WKCategoryLib/UIColor+WKColor.h>
+#import <WKCategoryLib/UIAlertController+WKAlertController.h>
 
 @interface WKViewController ()
 
@@ -40,10 +41,14 @@
     NSLog(@"取得每月有多少天=%ld",(long)[nowDate monthOfDay]);
     NSLog(@"日期格式化成字符串=%@",[nowDate stringWithFormat:@"yyyy-MM-dd HH:mm:ss"]);
     
-    UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, self.view.frame.size.width - 200, 100)];
+    NSDate *toDate = [NSDate dateFromString:@"2021-11-10 12:00:12" withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSInteger days = [NSDate numberOfDaysWithFromDate:toDate toDate:nowDate];
+    NSLog(@"日期相差多少天=%ld",(long)days);
+    
+    //UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, self.view.frame.size.width - 200, 100)];
     //colorView.backgroundColor = [UIColor colorWithHexStr:@"ff9ab00"];
-    colorView.backgroundColor = UIColorMakeRGB(235, 40, 160);
-    [self.view addSubview:colorView];
+    //colorView.backgroundColor = UIColorMakeRGB(235, 40, 160);
+    //[self.view addSubview:colorView];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -54,4 +59,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//弹框
+- (IBAction)tkclick:(id)sender {
+    
+    [UIAlertController showAlterController:self title:@"提示" message:@"确认是否删除?" style:UIAlertControllerStyleAlert actionTitles:[NSArray arrayWithObjects:@"确认",@"取消", nil] handler:^(NSInteger index) {
+        NSLog(@"index = %ld",(long)index);
+    }];
+    
+}
 @end

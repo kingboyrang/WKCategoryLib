@@ -10,4 +10,7 @@
 
 @interface WKViewController : UIViewController
 
+- (IBAction)tkclick:(id)sender;
+
+
 @end

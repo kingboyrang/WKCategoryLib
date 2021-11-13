@@ -167,6 +167,30 @@
 }
 
 /**
+* 计算文字高度
+* @param fontSize 字体
+* @param width 最大宽度
+* @return 文字高度
+*/
+-(CGFloat)heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width
+{
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
+    return  [self boundingRectWithSize:CGSizeMake(width, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size.height;
+}
+
+/**
+* 计算文字宽度
+* @param fontSize  字体
+* @param maxHeight 最大高度
+* @return  文字宽度
+*/
+- (CGFloat) widthWithFontSize:(CGFloat)fontSize height:(CGFloat)maxHeight
+{
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
+    return  [self boundingRectWithSize:CGSizeMake(0, maxHeight) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attrs context:nil].size.width;
+}
+
+/**
 *  @brief  判断是否为整形
 *
 *  @return YES表示整型，NO不是整型
@@ -234,6 +258,88 @@
     //NSString *carRegex = @"^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[a-zA-Z_0-9_\u4e00-\u9fa5]$";
     NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",express];
     return [passWordPredicate evaluateWithObject:self];
+}
+
++ (NSString *) compareCurrentTime:(NSTimeInterval) compareDate
+{
+    NSDate *confromTimesp        = [NSDate dateWithTimeIntervalSince1970:compareDate/1000];
+    
+    NSTimeInterval  timeInterval = [confromTimesp timeIntervalSinceNow];
+    timeInterval = -timeInterval;
+    long temp = 0;
+    NSString *result;
+    
+    NSCalendar *calendar     = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSInteger unitFlags      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents*referenceComponents=[calendar components:unitFlags fromDate:confromTimesp];
+    //    NSInteger referenceYear  =referenceComponents.year;
+    //    NSInteger referenceMonth =referenceComponents.month;
+    //    NSInteger referenceDay   =referenceComponents.day;
+    NSInteger referenceHour  =referenceComponents.hour;
+    //    NSInteger referemceMinute=referenceComponents.minute;
+    
+    if (timeInterval < 60) {
+        result = [NSString stringWithFormat:@"刚刚"];
+    }
+    else if((temp= timeInterval/60) < 60){
+        result = [NSString stringWithFormat:@"%ld分钟前",temp];
+    }
+    
+    else if((temp = timeInterval/3600) <24){
+        result = [NSString stringWithFormat:@"%ld小时前",temp];
+    }
+    else if ((temp = timeInterval/3600/24)==1)
+    {
+        result = [NSString stringWithFormat:@"昨天%ld时",(long)referenceHour];
+    }
+    else if ((temp = timeInterval/3600/24)==2)
+    {
+        result = [NSString stringWithFormat:@"前天%ld时",(long)referenceHour];
+    }
+    
+    else if((temp = timeInterval/3600/24) <31){
+        result = [NSString stringWithFormat:@"%ld天前",temp];
+    }
+    
+    else if((temp = timeInterval/3600/24/30) <12){
+        result = [NSString stringWithFormat:@"%ld个月前",temp];
+    }
+    else{
+        temp = temp/12;
+        result = [NSString stringWithFormat:@"%ld年前",temp];
+    }
+    
+    return  result;
+}
++ (NSString*) getDateStringWithTimestamp:(NSTimeInterval)timestamp
+{
+    NSDate *confromTimesp    = [NSDate dateWithTimeIntervalSince1970:timestamp/1000];
+    NSCalendar *calendar     = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSInteger unitFlags      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
+    NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSDateComponents*referenceComponents=[calendar components:unitFlags fromDate:confromTimesp];
+    NSInteger referenceYear  =referenceComponents.year;
+    NSInteger referenceMonth =referenceComponents.month;
+    NSInteger referenceDay   =referenceComponents.day;
+    
+    return [NSString stringWithFormat:@"%ld年%ld月%ld日",referenceYear,(long)referenceMonth,(long)referenceDay];
+}
+
+
+
++ (NSString*) getStringWithTimestamp:(NSTimeInterval)timestamp formatter:(NSString*)formatter
+{
+    if ([NSString stringWithFormat:@"%@", @(timestamp)].length == 13) {
+        timestamp /= 1000.0f;
+    }
+    NSDate*timestampDate=[NSDate dateWithTimeIntervalSince1970:timestamp];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatter];
+    NSString *strDate = [dateFormatter stringFromDate:timestampDate];
+    
+    return strDate;
 }
 
 @end
