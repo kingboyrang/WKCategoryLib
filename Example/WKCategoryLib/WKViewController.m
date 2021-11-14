@@ -11,6 +11,7 @@
 #import <WKCategoryLib/NSDate+WKDate.h>
 #import <WKCategoryLib/UIColor+WKColor.h>
 #import <WKCategoryLib/UIAlertController+WKAlertController.h>
+#import <WKCategoryLib/AESCryptor.h>
 
 @interface WKViewController ()
 
@@ -45,12 +46,34 @@
     NSInteger days = [NSDate numberOfDaysWithFromDate:toDate toDate:nowDate];
     NSLog(@"日期相差多少天=%ld",(long)days);
     
-    //UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, self.view.frame.size.width - 200, 100)];
-    //colorView.backgroundColor = [UIColor colorWithHexStr:@"ff9ab00"];
-    //colorView.backgroundColor = UIColorMakeRGB(235, 40, 160);
-    //[self.view addSubview:colorView];
     
-	// Do any additional setup after loading the view, typically from a nib.
+    
+       //aes加解密key
+       NSString *appkey = @"UxCn6hNCtvYOB%ED";
+       
+       //NSString *ivkey = @"123456";
+       //NSData *ivData = [ivkey dataUsingEncoding:NSUTF8StringEncoding];
+       
+       //要加密的字典
+       NSDictionary *body = @{
+                              @"v":@"1.0.0",
+                              @"agentCode":@"zte001",
+                              @"pv":@"iphone",
+                              @"uid":@"1"};
+       
+       //1.aes,des,3des加密
+       //NSString *encryStr= [AESCryptor encryptWithAESContent:body key:appkey iv:nil];
+       //NSString *encryStr= [AESCryptor encryptWithDESContent:body key:appkey iv:nil];
+       NSString *encryStr= [AESCryptor encryptWith3DESContent:body key:appkey iv:nil];
+       NSLog(@"aes,des,3des加密后的字符串:%@",encryStr);
+       
+       //2.aes,des,3des解密
+      //NSString *decstring=[AESCryptor decryptWithAESContent:[encryStr dataUsingEncoding:NSUTF8StringEncoding] key:appkey iv:nil];
+      //NSString *decstring=[AESCryptor decryptWithDESContent:[encryStr dataUsingEncoding:NSUTF8StringEncoding] key:appkey iv:nil];
+      NSString *decstring=[AESCryptor decryptedWith3DESContent:[encryStr dataUsingEncoding:NSUTF8StringEncoding] key:appkey iv:nil];
+       NSLog(@"aes,des,3des解密结果:%@", decstring);
+    
+   
 }
 
 - (void)didReceiveMemoryWarning
