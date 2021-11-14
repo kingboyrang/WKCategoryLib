@@ -81,6 +81,10 @@
 		07DF9ACA2740A6DB006AAC08 /* AESCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9AC72740A6DB006AAC08 /* AESCryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07DF9ACB2740A6DB006AAC08 /* AESCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9AC82740A6DB006AAC08 /* AESCryptor.m */; };
 		07DF9ACC2740A6DB006AAC08 /* AESCryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9AC82740A6DB006AAC08 /* AESCryptor.m */; };
+		07DF9ACF2740BB7D006AAC08 /* RSACryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */; };
+		07DF9AD02740BB7D006AAC08 /* RSACryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07DF9AD12740BB7D006AAC08 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */; };
+		07DF9AD22740BB7D006AAC08 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */; };
 		0A8D85D864290011733818FD19A108D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		1ABBCDD6C196E92D11326ECA051D6269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		2C39A60F3662673E939C1C20ED2A2899 /* Pods-WKCategoryLib_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A64D35C16B500393181FBEB593574B /* Pods-WKCategoryLib_Tests-dummy.m */; };
@@ -151,6 +155,8 @@
 		07B6107A274010F400E9B8C2 /* SHACryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHACryptor.m; sourceTree = "<group>"; };
 		07DF9AC72740A6DB006AAC08 /* AESCryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AESCryptor.h; sourceTree = "<group>"; };
 		07DF9AC82740A6DB006AAC08 /* AESCryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AESCryptor.m; sourceTree = "<group>"; };
+		07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSACryptor.h; sourceTree = "<group>"; };
+		07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
 		1014EF472CA72D1222430628C683A714 /* WKCategoryLib-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WKCategoryLib-Info.plist"; sourceTree = "<group>"; };
 		11150C501822897408D4E504FB26D4D0 /* Pods-WKCategoryLib_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WKCategoryLib_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1321EDE471802188CD419064808D652B /* Pods-WKCategoryLib_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WKCategoryLib_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -305,6 +311,8 @@
 				07B6107A274010F400E9B8C2 /* SHACryptor.m */,
 				07DF9AC72740A6DB006AAC08 /* AESCryptor.h */,
 				07DF9AC82740A6DB006AAC08 /* AESCryptor.m */,
+				07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */,
+				07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */,
 			);
 			path = Encrypt;
 			sourceTree = "<group>";
@@ -443,6 +451,7 @@
 				07B6107B274010F400E9B8C2 /* SHACryptor.h in Headers */,
 				07B610742740011E00E9B8C2 /* NSData+WKBase64.h in Headers */,
 				071B85592737602A006130D2 /* FileCache.h in Headers */,
+				07DF9ACF2740BB7D006AAC08 /* RSACryptor.h in Headers */,
 				07B61044273F9D0E00E9B8C2 /* UIAlertController+WKAlertController.h in Headers */,
 				07B61064273FBC5200E9B8C2 /* NSObject+Category.h in Headers */,
 				07B61068273FE8B700E9B8C2 /* UIDevice+WKHardware.h in Headers */,
@@ -474,6 +483,7 @@
 				07B610752740011E00E9B8C2 /* NSData+WKBase64.h in Headers */,
 				07B6107C274010F400E9B8C2 /* SHACryptor.h in Headers */,
 				07B61051273FB42800E9B8C2 /* UIView+WKView.h in Headers */,
+				07DF9AD02740BB7D006AAC08 /* RSACryptor.h in Headers */,
 				07B6104B273FB36700E9B8C2 /* NSDictionary+WKDictionary.h in Headers */,
 				071B855A2737602A006130D2 /* FileCache.h in Headers */,
 			);
@@ -622,6 +632,7 @@
 				07B6106A273FE8B700E9B8C2 /* UIDevice+WKHardware.m in Sources */,
 				07B61062273FBC5200E9B8C2 /* NSObject+Category.m in Sources */,
 				D8062448E4F800653AF588FB93319413 /* Pods-WKCategoryLib_Example-dummy.m in Sources */,
+				07DF9AD12740BB7D006AAC08 /* RSACryptor.m in Sources */,
 				07B61052273FB42800E9B8C2 /* UIView+WKView.m in Sources */,
 				07B6104C273FB36700E9B8C2 /* NSDictionary+WKDictionary.m in Sources */,
 				0701A072273666FA009F9CFE /* UIColor+WKColor.m in Sources */,
@@ -648,6 +659,7 @@
 				07B6106B273FE8B700E9B8C2 /* UIDevice+WKHardware.m in Sources */,
 				07B61063273FBC5200E9B8C2 /* NSObject+Category.m in Sources */,
 				499031B2DB61E21079093871ACB1A0E4 /* WKCategoryLib-dummy.m in Sources */,
+				07DF9AD22740BB7D006AAC08 /* RSACryptor.m in Sources */,
 				07B61053273FB42800E9B8C2 /* UIView+WKView.m in Sources */,
 				07B6104D273FB36700E9B8C2 /* NSDictionary+WKDictionary.m in Sources */,
 				0701A073273666FA009F9CFE /* UIColor+WKColor.m in Sources */,

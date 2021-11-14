@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   #公开的头文件，如果没有公开，用户在用的时候可能引不到响应的头文件
   # s.public_header_files = 'Pod/Classes/**/*.h'
   #需要依赖的框架
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'Foundation', 'Security'
   #需要依赖的三方库
   # s.dependency 'AFNetworking', '~> 2.3'
   
