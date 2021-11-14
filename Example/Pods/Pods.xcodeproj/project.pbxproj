@@ -85,6 +85,10 @@
 		07DF9AD02740BB7D006AAC08 /* RSACryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07DF9AD12740BB7D006AAC08 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */; };
 		07DF9AD22740BB7D006AAC08 /* RSACryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */; };
+		07DF9ADB2740DCE0006AAC08 /* MD5Cryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9AD92740DCE0006AAC08 /* MD5Cryptor.h */; };
+		07DF9ADC2740DCE0006AAC08 /* MD5Cryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DF9AD92740DCE0006AAC08 /* MD5Cryptor.h */; };
+		07DF9ADD2740DCE0006AAC08 /* MD5Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ADA2740DCE0006AAC08 /* MD5Cryptor.m */; };
+		07DF9ADE2740DCE0006AAC08 /* MD5Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF9ADA2740DCE0006AAC08 /* MD5Cryptor.m */; };
 		0A8D85D864290011733818FD19A108D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		1ABBCDD6C196E92D11326ECA051D6269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		2C39A60F3662673E939C1C20ED2A2899 /* Pods-WKCategoryLib_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A64D35C16B500393181FBEB593574B /* Pods-WKCategoryLib_Tests-dummy.m */; };
@@ -157,6 +161,8 @@
 		07DF9AC82740A6DB006AAC08 /* AESCryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AESCryptor.m; sourceTree = "<group>"; };
 		07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSACryptor.h; sourceTree = "<group>"; };
 		07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSACryptor.m; sourceTree = "<group>"; };
+		07DF9AD92740DCE0006AAC08 /* MD5Cryptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Cryptor.h; sourceTree = "<group>"; };
+		07DF9ADA2740DCE0006AAC08 /* MD5Cryptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5Cryptor.m; sourceTree = "<group>"; };
 		1014EF472CA72D1222430628C683A714 /* WKCategoryLib-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WKCategoryLib-Info.plist"; sourceTree = "<group>"; };
 		11150C501822897408D4E504FB26D4D0 /* Pods-WKCategoryLib_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WKCategoryLib_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1321EDE471802188CD419064808D652B /* Pods-WKCategoryLib_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WKCategoryLib_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -313,6 +319,8 @@
 				07DF9AC82740A6DB006AAC08 /* AESCryptor.m */,
 				07DF9ACD2740BB7D006AAC08 /* RSACryptor.h */,
 				07DF9ACE2740BB7D006AAC08 /* RSACryptor.m */,
+				07DF9AD92740DCE0006AAC08 /* MD5Cryptor.h */,
+				07DF9ADA2740DCE0006AAC08 /* MD5Cryptor.m */,
 			);
 			path = Encrypt;
 			sourceTree = "<group>";
@@ -456,6 +464,7 @@
 				07B61064273FBC5200E9B8C2 /* NSObject+Category.h in Headers */,
 				07B61068273FE8B700E9B8C2 /* UIDevice+WKHardware.h in Headers */,
 				07B61050273FB42800E9B8C2 /* UIView+WKView.h in Headers */,
+				07DF9ADB2740DCE0006AAC08 /* MD5Cryptor.h in Headers */,
 				07B6105C273FBC5200E9B8C2 /* NSObject+PerformBlock.h in Headers */,
 				0701A05A27362A89009F9CFE /* NSString+WKString.h in Headers */,
 				0701A070273666FA009F9CFE /* UIColor+WKColor.h in Headers */,
@@ -470,6 +479,7 @@
 				0701A061273649A6009F9CFE /* NSString+WKString.h in Headers */,
 				0701A06B27365DAB009F9CFE /* UIImage+WKImage.h in Headers */,
 				0701A071273666FA009F9CFE /* UIColor+WKColor.h in Headers */,
+				07DF9ADC2740DCE0006AAC08 /* MD5Cryptor.h in Headers */,
 				0701A06527365764009F9CFE /* NSDate+WKDate.h in Headers */,
 				071B856027376794006130D2 /* UserDefaultsCache.h in Headers */,
 				0781E02E273A0272004B7B72 /* UIScreen+WKScreen.h in Headers */,
@@ -621,6 +631,7 @@
 				071B855B2737602A006130D2 /* FileCache.m in Sources */,
 				0781E02F273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */,
 				07DF9ACB2740A6DB006AAC08 /* AESCryptor.m in Sources */,
+				07DF9ADD2740DCE0006AAC08 /* MD5Cryptor.m in Sources */,
 				071B856127376794006130D2 /* UserDefaultsCache.m in Sources */,
 				07B610762740011E00E9B8C2 /* NSData+WKBase64.m in Sources */,
 				0701A05C27362A89009F9CFE /* NSString+WKString.m in Sources */,
@@ -648,6 +659,7 @@
 				071B855C2737602A006130D2 /* FileCache.m in Sources */,
 				0781E030273A0272004B7B72 /* UIScreen+WKScreen.m in Sources */,
 				07DF9ACC2740A6DB006AAC08 /* AESCryptor.m in Sources */,
+				07DF9ADE2740DCE0006AAC08 /* MD5Cryptor.m in Sources */,
 				071B856227376794006130D2 /* UserDefaultsCache.m in Sources */,
 				07B610772740011E00E9B8C2 /* NSData+WKBase64.m in Sources */,
 				0701A05D27362A89009F9CFE /* NSString+WKString.m in Sources */,

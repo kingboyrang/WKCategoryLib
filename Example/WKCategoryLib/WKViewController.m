@@ -54,10 +54,10 @@
     
     
     
-    //aes,des,3des加解密
+    //aes,des,3des加解密 = 对称加密
     //[self aesTest];
     
-    //rsa加解密
+    //rsa加解密 = 非对称加密
     [self rsaTest];
    
 }
