@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WKCategoryLib' #库的名字
-  s.version          = '0.0.1' #版本号，当私有库需要更新的时候只要修改这个值
+  s.version          = '0.0.2' #版本号，当私有库需要更新的时候只要修改这个值
   s.summary          = '分类库' #库的简介，pod search 显示在上面的介绍
 
 # This description is used to generate tags and improve search results.
