@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   
   #s.subspec 'Category' do |ss|
   #    ss.source_files = 'WKCategoryLib/Classes/Category/*.{h,m}'
-  end
+  #end
 
   
 end
