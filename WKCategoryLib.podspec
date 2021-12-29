@@ -40,9 +40,9 @@ Pod::Spec.new do |s|
   #这个很重要，指定资源文件，前缀就是 .podspec 文件当前路径，只用写之后的路径，如 Classes/* 是指 Classes 文件夹下的所有文件，但不包括子文件夹里面的文件、Classes/**/* 是指包含所有 Classes 文件夹下的文件，包括子文件、Classes/**/*.{h,m} 是指包含所有 Classes 文件夹下的后缀为 .h 和 .m 的文件，也可以指定文件。
   s.source_files = 'WKCategoryLib/Classes/**/*'
   
-  s.resource_bundles = {
-    'WKCategoryLib' => ['WKCategoryLib/Assets/*.xcassets']
-  }
+  #s.resource_bundles = {
+  #  'WKCategoryLib' => ['WKCategoryLib/Assets/WKCategoryLib.xcassets']
+  #}
 
   #公开的头文件，如果没有公开，用户在用的时候可能引不到响应的头文件
   # s.public_header_files = 'Pod/Classes/**/*.h'

@@ -10,8 +10,6 @@
 		0701A05A27362A89009F9CFE /* NSString+WKString.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A05827362A89009F9CFE /* NSString+WKString.h */; };
 		0701A05C27362A89009F9CFE /* NSString+WKString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701A05927362A89009F9CFE /* NSString+WKString.m */; };
 		0701A05D27362A89009F9CFE /* NSString+WKString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701A05927362A89009F9CFE /* NSString+WKString.m */; };
-		0701A05F273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */; };
-		0701A060273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */; };
 		0701A061273649A6009F9CFE /* NSString+WKString.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A05827362A89009F9CFE /* NSString+WKString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0701A06427365764009F9CFE /* NSDate+WKDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A06227365764009F9CFE /* NSDate+WKDate.h */; };
 		0701A06527365764009F9CFE /* NSDate+WKDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0701A06227365764009F9CFE /* NSDate+WKDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,7 +121,6 @@
 		04C54DEF0C929D88C08AC1B972372D26 /* Pods-WKCategoryLib_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WKCategoryLib_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0701A05827362A89009F9CFE /* NSString+WKString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WKString.h"; sourceTree = "<group>"; };
 		0701A05927362A89009F9CFE /* NSString+WKString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WKString.m"; sourceTree = "<group>"; };
-		0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WKCategoryLib.xcassets; sourceTree = "<group>"; };
 		0701A06227365764009F9CFE /* NSDate+WKDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+WKDate.h"; sourceTree = "<group>"; };
 		0701A06327365764009F9CFE /* NSDate+WKDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WKDate.m"; sourceTree = "<group>"; };
 		0701A06827365DAB009F9CFE /* UIImage+WKImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+WKImage.h"; sourceTree = "<group>"; };
@@ -239,7 +236,6 @@
 		0701A0552736293A009F9CFE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				0701A05E273637AE009F9CFE /* WKCategoryLib.xcassets */,
 			);
 			name = Assets;
 			path = WKCategoryLib/Assets;
@@ -592,7 +588,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0701A060273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +595,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0701A05F273637AE009F9CFE /* WKCategoryLib.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
