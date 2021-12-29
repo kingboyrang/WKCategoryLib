@@ -23,14 +23,14 @@ Pod::Spec.new do |s|
                        DESC
 
 #主页地址，pod search 会显示，一般填写仓库的地址就行了
-  s.homepage         = 'https://github.com/wuchaorang.2008@163.com/WKCategoryLib'
+  s.homepage         = 'https://github.com/kingboyrang/WKCategoryLib'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   #开源协议，项目文件目录下需要有一个MIT开源协议文件，创建的时候默认就创建了这个，具体内容可以打开 LICENSE 查看
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   #作者名字、邮箱
   s.author           = { 'kingboyrang' => 'wuchaorang.2008@163.com' }
   #资源地址，pod install 的时候会根据这个地址去下载你的想要库，以及下载的版本，必须要跟s.version一致。
-  s.source           = { :git => 'https://github.com/wuchaorang.2008@163.com/WKCategoryLib.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/kingboyrang/WKCategoryLib.git', :tag => s.version.to_s }
   s.social_media_url = 'https://weibo.com/u/2735662583'
   #库最低支持的系统版本
   s.ios.deployment_target = '9.0'
